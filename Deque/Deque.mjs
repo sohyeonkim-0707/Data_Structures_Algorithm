@@ -1,6 +1,7 @@
 import { DoublyLinkedList } from "../Queue/DoublyLinkedList.mjs";
 
 class Deque {
+  // 생성자에 빈 이중연결리스트를 만들어주면서 초기화
   constructor() {
     this.list = new DoublyLinkedList();
   }
@@ -11,10 +12,9 @@ class Deque {
     this.list.printAll();
   }
 
-  // 연결리스트에서 head에 데이터 삽입, 제거는 O(1)의 성능을 보였다. 이를 이용해서 addFirst와 removeFist()를 아주 간다하게 구현할 수 있다.
   // 📌 addFirst
   // list의 insertAt 함수를 호출하고 인덱스를 0으로 주면 O(1)의 성능으로 헤드에 삽입된다.
-  addFirst() {
+  addFirst(data) {
     this.list.insertAt(0, data);
   }
 
@@ -24,20 +24,16 @@ class Deque {
     return this.list.deleteAt(0);
   }
 
-  // 큐를 구현할 때 DoublyLinkedList클래스 내 insertAt 함수에서 마지막 인덱스에 삽입하는 경우
-  // tail을 이용해서 O(1)의 성능으로 삽입하도록 수정했다.
-
-  // addLast 함수도 insertAt 함수를 이용하면 쉽게 구현할 수 있다.
-
   // 📌 addLast
   // list의 insertAt 함수의 인덱스로 현재 리스트의 카운트를 넣어주면 마지막 원소의 삽입을 뜻한다.
-  addLast() {
+  addLast(data) {
     this.list.insertAt(this.list.count, data);
   }
 
+  // 📌removeLast
   // 📌 deleteLast() 함수를 호출해서 얻은 노드를 리턴
   removeLast() {
-    return this.deleteLast();
+    return this.list.deleteLast();
   }
 
   // 📌 isEmpty
