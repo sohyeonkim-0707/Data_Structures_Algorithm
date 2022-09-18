@@ -7,4 +7,6 @@ function factorial(number) {
   }
 }
 
+// 5!
+// 5X4X3X2X1
 console.log(factorial(5));
